@@ -5,7 +5,6 @@ from django.db import models
 # Create your models here.
 
 
-
 class ProficiencyType(models.Model):
     profType = models.CharField(max_length=100)
 
@@ -14,6 +13,7 @@ class ProficiencyType(models.Model):
 
     def __str__(self):
         return self.profType
+
 
 class Proficiency(models.Model):
     profType = models.ForeignKey(ProficiencyType, on_delete=models.PROTECT)
@@ -24,6 +24,7 @@ class Proficiency(models.Model):
 
     def __str__(self):
         return self.name + self.profType.__str__()
+
 
 class Race(models.Model):
     raceName = models.CharField(max_length=50)
@@ -48,13 +49,8 @@ class Class(models.Model):
 
     proficiencies = models.ManyToManyField(ProficiencyType)
 
-
-
     def __str__(self):
         return self.className
-
-
-
 
 
 class Character(models.Model):
