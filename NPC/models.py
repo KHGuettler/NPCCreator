@@ -13,6 +13,14 @@ class Race(models.Model):
 class Class(models.Model):
     className = models.CharField(max_length=50)
 
+    class HitDice(models.IntegerChoices):
+        d6 = 6
+        d8 = 8
+        d10 = 10
+        d12 = 12
+
+    hitDice = models.IntegerField(choices=HitDice.choices, null=True)
+
     def __str__(self):
         return self.className
 
