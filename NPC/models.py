@@ -1,5 +1,4 @@
 from django.db import models
-from django import forms
 
 # Create your models here.
 
@@ -21,13 +20,6 @@ class Class(models.Model):
         d12 = 12
 
     hitDice = models.IntegerField(choices=HitDice.choices, null=True)
-
-    PROFIENCIES = [
-        ("Armor", "Light")
-    ]
-
-    proficiencies = forms.MultipleChoiceField(choices=PROFIENCIES)
-
 
     def __str__(self):
         return self.className
